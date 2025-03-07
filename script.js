@@ -438,3 +438,42 @@ window.addEventListener('scroll', () => {
     
     lastScrollTop = scrollTop;
 });
+
+/* ==========================================================================
+   PORTFOLIO FILTERING
+   ========================================================================== */
+// Select all filter buttons and filterable cards
+const filterButtons = document.querySelectorAll(".filter_buttons button");
+const filterableCards = document.querySelectorAll(".portfolio-card");
+
+// Define the filterCards function
+const filterCards = e => {
+    // Remove active class from current active button
+    document.querySelector(".filter_buttons .active").classList.remove("active");
+    // Add active class to clicked button
+    e.target.classList.add("active");
+
+    // Get the filter value from clicked button
+    const filterValue = e.target.getAttribute("data-filter");
+
+    filterableCards.forEach(card => {
+        // Get all categories of the card
+        const cardCategories = card.getAttribute("data-category").split(" ");
+        
+        // Show all cards if "all" is selected, or if the card has the selected category
+        if (filterValue === "all" || cardCategories.includes(filterValue)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+};
+
+// Add click event listener to each filter button
+filterButtons.forEach(button => {
+    button.addEventListener("click", filterCards);
+});
+
+// Log pour débugger
+console.log("Nombre de boutons trouvés:", filterButtons.length);
+console.log("Nombre de cartes trouvées:", filterableCards.length);
