@@ -429,7 +429,7 @@ window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDirection = scrollTop > lastScrollTop ? 1 : -1;
     
-    rotation += 5 * scrollDirection; // Vitesse de rotation avec direction
+    rotation += 5 * scrollDirection; //Vitesse de rotation avec direction
     
     // Appliquer la rotation à toutes les étoiles
     starsRotate.forEach(star => {
