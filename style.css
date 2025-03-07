@@ -62,13 +62,13 @@ a:hover {
    ========================================================================== */
 .big-text {
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 2.5;
     font-family: 'StreetBreaker';
     font-size: clamp(2rem, 15vw, 10rem);
     font-weight: bold;
     text-align: center;
-    margin: 0;
-    padding: 10px 0;
+    margin: 100px;
+    padding: 0;
 }
 
 #nom {
@@ -143,7 +143,7 @@ p {
     width: calc(100% - 50px);
     max-width: 1000px;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid white;
     border-radius: 50px;
@@ -282,13 +282,37 @@ canvas {
     font-weight: 700;
 }
 
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .tag {
-    display: inline-block;
     padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     font-size: 0.8rem;
-    margin-bottom: 10px;
+}
+
+/* Couleur des tags par type */
+.tag[data-type="comprendre"] {
+    background: rgba(65, 105, 225, 0.2); /* Bleu royal */
+}
+
+.tag[data-type="entreprendre"] {
+    background: rgba(50, 205, 50, 0.2); /* Vert lime */
+}
+
+.tag[data-type="developper"] {
+    background: rgba(255, 69, 0, 0.2); /* Orange rouge */
+}
+
+.tag[data-type="exprimer"] {
+    background: rgba(186, 85, 211, 0.2); /* Violet moyen */
+}
+
+.tag[data-type="creer"] {
+    background: rgba(255, 215, 0, 0.2); /* Or */
 }
 
 /* ==========================================================================
@@ -370,6 +394,60 @@ canvas {
 .submit-btn:hover {
     border-width: 4px;
     margin: -3px;
+}
+
+/* ==========================================================================
+   RÉALISATION STYLES
+   ========================================================================== */
+   .realisation-container {
+    max-width: 1440px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.realisation-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.realisation-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.realisation-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.realisation-pitch {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.realisation-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.realisation-personal {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 25px;
 }
 
 /* ==========================================================================
@@ -883,4 +961,51 @@ canvas {
 .number {
     font-weight: 900;
     font-size: 30px;
+}
+
+.filter_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter_buttons button {
+    padding: 12px 24px;
+    border: 1px solid white;
+    border-radius: 50px; /* Bords très arrondis */
+    cursor: none; /* Pour garder la cohérence avec votre curseur personnalisé */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    text-transform: uppercase; /* Texte en majuscules */
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.filter_buttons button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.filter_buttons button.active {
+    background: white;
+    color: black;
+    font-weight: 900;
+}
+
+/* Ajout d'une version responsive */
+@media (max-width: 768px) {
+    .filter_buttons {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .filter_buttons button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
 }
