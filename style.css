@@ -28,7 +28,7 @@ body {
 
 a {
     cursor: none; /* On masque le curseur natif */
-    font-size: 900;
+    font-size: 800;
     transition: color 0.3s ease;
 }
 
