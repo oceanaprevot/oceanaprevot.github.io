@@ -487,7 +487,7 @@ canvas {
    CAROUSEL 3D
    ========================================================================== */
 .carousel-container {
-    perspective: 360px;
+    perspective: 400px;
     width: 100%;
     height: 50vh;
     display: flex;
@@ -921,9 +921,7 @@ canvas {
    RESPONSIVE DESIGN
    ========================================================================== */
    @media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        margin: 20px;
-    }
+
 
     .carousel-container {
         height: 10vh;
