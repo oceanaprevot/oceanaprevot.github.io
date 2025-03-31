@@ -803,7 +803,6 @@ canvas {
     opacity: 0.5;
     z-index: 1;
     pointer-events: none;
-    font-family: Arial, sans-serif;
     letter-spacing: -10px;
 }
 
