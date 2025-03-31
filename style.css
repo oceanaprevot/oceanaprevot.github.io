@@ -58,13 +58,13 @@ a:hover {
    ========================================================================== */
 @font-face {
     font-family: 'StreetBreaker';
-    src: url('../fonts/StreetBreaker.otf') format('opentype');
+    src: url('fonts/StreetBreaker.otf') format('opentype');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Stylewriting';
-    src: url('../fonts/Stylewriting.ttf') format('truetype');
+    src: url('fonts/Stylewriting.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -641,7 +641,7 @@ canvas {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-family: 'Stylewriting';
+    font-family: 'StreetBreaker';
 }
 
 .contact-new p {
@@ -1217,7 +1217,7 @@ canvas {
 }
 
 .text-tag {
-    font-family: 'StreetBreaker', sans-serif; /* Applique la police StreetBreaker */
+    font-family: 'StreetBreaker', sans-serif; /* Police StreetBreaker */
     font-size: 40px; /* Taille de la police pour les ordinateurs */
     margin: 10px 0; /* Espacement autour du texte */
 }
