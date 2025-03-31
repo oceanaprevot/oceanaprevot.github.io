@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace Académique - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="container"> <!-- Conteneur pour le header -->
+        <header class="site-header">
+            <nav class="header-nav">
+                <div class="header-logo">
+                    <a href="index.html">
+                       <img id="logo" src="images/logo oceana.svg" alt="Logo" height="40px">
+                    </a>
+                </div>
+
+                <ul class="nav-links portfolio-link">
+                    <li><a href="portfolio.html">P ✦ R T F ✦ L I ✦</a></li>
+                </ul>
+
+                <ul class="nav-links">
+                    <li><a href="contact.html">@</a></li>
+                </ul>
+                
+                <!-- Ajout du bouton menu hamburger -->
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <section class="section-1440">
+
+        <div class="navigation-buttons">
+            <a href="portfolio.html" class="btn">réalisations</a>
+            <a href="academique.html" class="btn rainbow-btn">Espace Académique</a>
+        </div>
+
+
+        <!-- Boutons de filtrage
+        <div class="filter_buttons">
+            <button class="active" data-filter="all">Tous</button>
+            <button data-filter="comprendre">Comprendre</button>
+            <button data-filter="entreprendre">Entreprendre</button>
+            <button data-filter="developper">Développer</button>
+            <button data-filter="exprimer">Exprimer</button>
+            <button data-filter="creer">Créer</button>
+        </div> -->
+
+
+        <h2 class="construction">La partie académique est destinée aux professeurs de la SAE Portfolio. <br>Cette dernière est également en cours de construction.</h2>
+
+<!--        <section class="portfolio-grid">
+           
+            <!-- Carte avec 2 tags 
+            <a href="#" class="portfolio-card" data-category="comprendre developper">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Analyse et Développement</h3>
+                    <div class="tags-container">
+                        <span class="tag" data-type="comprendre">Comprendre</span>
+                        <span class="tag" data-type="developper">Développer</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte avec 3 tags
+            <a href="#" class="portfolio-card" data-category="creer exprimer entreprendre">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Projet créatif entrepreneurial</h3>
+                    <div class="tags-container">
+                        <span class="tag" data-type="creer">Créer</span>
+                        <span class="tag" data-type="exprimer">Exprimer</span>
+                        <span class="tag" data-type="entreprendre">Entreprendre</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 3 
+            <a href="#" class="portfolio-card" data-category="developper">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Application web React</h3>
+                    <span class="tag" data-type="developper">Développer</span>
+                </div>
+            </a>
+
+            <!-- Carte 4 --
+            <a href="#" class="portfolio-card" data-category="exprimer">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Présentation orale</h3>
+                    <span class="tag" data-type="exprimer">Exprimer</span>
+                </div>
+            </a>
+
+            <!-- Carte 5 --
+            <a href="#" class="portfolio-card" data-category="creer">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Design d'interface</h3>
+                    <span class="tag" data-type="creer">Créer</span>
+                </div>
+            </a>
+
+            <!-- Carte 6 --
+            <a href="#" class="portfolio-card" data-category="comprendre">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Étude utilisateur</h3>
+                    <span class="tag" data-type="comprendre">Comprendre</span>
+                </div>
+            </a>
+
+            <!-- Carte 7 --
+            <a href="#" class="portfolio-card" data-category="developper">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Base de données</h3>
+                    <span class="tag" data-type="developper">Développer</span>
+                </div>
+            </a>
+
+            <!-- Carte 8 --
+            <a href="#" class="portfolio-card" data-category="exprimer">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Stratégie de communication</h3>
+                    <span class="tag" data-type="exprimer">Exprimer</span>
+                </div>
+            </a>
+
+            <!-- Carte 9 --
+            <a href="#" class="portfolio-card" data-category="entreprendre">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Business plan</h3>
+                    <span class="tag" data-type="entreprendre">Entreprendre</span>
+                </div>
+            </a>
+
+            <!-- Carte 10 --
+            <a href="#" class="portfolio-card" data-category="creer">
+                <div class="portfolio-image">
+                    <div class="placeholder-image"></div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Motion design</h3>
+                    <span class="tag" data-type="creer">Créer</span>
+                </div>
+            </a>
+        </section>-->
+        
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3 class="rainbow-text">Contact</h3>
+                <ul>
+                    <li><a href="mailto:oceana.prevot@gmail.com">oceana.prevot@gmail.com</a></li>
+                    <li>
+                        <a href="https://fr.linkedin.com/in/oceana-prevot" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/oceanaprevot/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-sitemap">
+                <h3 class="rainbow-text">Plan du site</h3>
+                <ul>
+                    <li><a href="academique.html">Espace académique</a></li>
+                    <li><a href="portfolio.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="credit-text">© 2025 Oceana Prevot - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
