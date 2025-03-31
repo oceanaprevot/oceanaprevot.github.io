@@ -1,11 +1,10 @@
 /* ==========================================================================
    BASE STYLES
    ========================================================================== */
-* {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'PoppinsRegular';
     cursor: none; /* On masque le curseur natif */
 }
 
@@ -14,7 +13,8 @@ body {
     color: white;
     overflow-y: scroll;
     overflow-x:hidden;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins';
+
 }
 
 .section-1440 {
@@ -157,6 +157,38 @@ a:hover {
 }
 
 @font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'PoppinsSemiBoldItalic';
     src: url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
     font-weight: normal;    
@@ -244,7 +276,6 @@ a:hover {
 }
 
 #daalt {
-    font-family: 'PoppinsExtraBold';
     font-size: 3rem;
     text-transform: uppercase;
     text-align: center;
@@ -610,6 +641,7 @@ canvas {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-family: 'Stylewriting';
 }
 
 .contact-new p {
