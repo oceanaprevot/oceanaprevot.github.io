@@ -6,9 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     cursor: none; /* On masque le curseur natif */
-    Font-family: 'Poppins';
-
-
 }
 
 body {
@@ -27,8 +24,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-       font-family: 'Poppins';
-
 }
 
 .section-infinie {
@@ -75,7 +70,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -83,7 +78,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    src: url('fonts/Poppins-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -91,7 +86,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+    src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -99,7 +94,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Medium.ttf') format('truetype');
+    src: url('fonts/Poppins-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -107,7 +102,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Light.ttf') format('truetype');
+    src: url('fonts/Poppins-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -115,7 +110,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Thin.ttf') format('truetype');
+    src: url('fonts/Poppins-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
     font-display: swap;
@@ -123,7 +118,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraLight.ttf') format('truetype');
+    src: url('fonts/Poppins-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
     font-display: swap;
@@ -131,7 +126,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Black.ttf') format('truetype');
+    src: url('fonts/Poppins-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -139,7 +134,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraBold.ttf') format('truetype');
+    src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
@@ -147,7 +142,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-Italic.ttf') format('truetype');
+    src: url('fonts/Poppins-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -155,7 +150,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+    src: url('fonts/Poppins-BoldItalic.ttf') format('truetype');
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -163,7 +158,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
+    src: url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -171,7 +166,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-LightItalic.ttf') format('truetype');
+    src: url('fonts/Poppins-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -179,7 +174,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-ThinItalic.ttf') format('truetype');
+    src: url('fonts/Poppins-ThinItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
     font-display: swap;
@@ -187,7 +182,7 @@ a:hover {
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    src: url('fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
     font-weight: 800;
     font-style: italic;
     font-display: swap;
