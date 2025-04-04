@@ -213,6 +213,15 @@ function updateRainbowColors() {
         tag.style.webkitBackgroundClip = 'text';
     });
 
+    // Appliquer l'effet RVB à tous les éléments avec la classe text-rgb
+    const textRgbElements = document.querySelectorAll('.text-rgb');
+    textRgbElements.forEach(element => {
+        element.style.backgroundImage = gradient;
+        element.style.color = 'transparent';
+        element.style.backgroundClip = 'text';
+        element.style.webkitBackgroundClip = 'text';
+    });
+
     // Footer Bottom
     const footerBottom = document.querySelector('.footer-bottom');
     if (footerBottom) {
