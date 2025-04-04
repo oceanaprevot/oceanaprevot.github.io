@@ -335,6 +335,9 @@ p {
     align-items: center;
 }
 
+
+
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -737,6 +740,23 @@ canvas {
 
 }
 
+
+.realisation-highlight {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.realisation-highlight p {
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+
+}
 .portfolio-header {
     position: relative;
     width: 100%;
@@ -803,6 +823,7 @@ canvas {
     opacity: 0.5;
     z-index: 1;
     pointer-events: none;
+    font-family: Arial, sans-serif;
     letter-spacing: -10px;
 }
 
@@ -1431,6 +1452,8 @@ canvas {
     .text-tag {
         font-size: 30px; /* Taille de la police pour les écrans plus petits */
     }
+  
+
     .two-column-section {
         flex-direction: column; /* Aligner les colonnes verticalement */
         align-items: center; /* Centrer les éléments horizontalement */
@@ -1468,6 +1491,7 @@ canvas {
 .realisation-card {
     flex: 1;
     padding: 30px;
+    margin: 40px 0;
     border: 1px solid white;
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.3);
