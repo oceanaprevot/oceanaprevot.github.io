@@ -580,3 +580,97 @@ document.querySelectorAll('.filter-school button').forEach(button => {
         filterCards();
     });
 });
+
+/* ==========================================================================
+   REALISATION CAROUSEL
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.realisation-carousel');
+    
+    carousels.forEach(carousel => {
+        const container = carousel.parentElement;
+        const items = carousel.querySelectorAll('.realisation-carousel-item');
+        const leftArrow = container.querySelector('.carousel-arrow-left');
+        const rightArrow = container.querySelector('.carousel-arrow-right');
+        
+        let currentIndex = 0;
+        const itemsPerView = 4;
+        const totalItems = items.length;
+        
+        // Cloner les éléments pour l'effet infini
+        const firstItems = Array.from(items).slice(0, itemsPerView);
+        const lastItems = Array.from(items).slice(-itemsPerView);
+        
+        firstItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            carousel.appendChild(clone);
+        });
+        
+        lastItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            carousel.insertBefore(clone, carousel.firstChild);
+        });
+        
+        // Mettre à jour l'index après le clonage
+        currentIndex = itemsPerView;
+        
+        function updateCarousel() {
+            const offset = currentIndex * (100 / itemsPerView);
+            carousel.style.transform = `translateX(-${offset}%)`;
+        }
+        
+        function moveLeft() {
+            currentIndex--;
+            updateCarousel();
+            
+            // Si on atteint le début, on saute à la fin
+            if (currentIndex < itemsPerView) {
+                setTimeout(() => {
+                    currentIndex = totalItems;
+                    carousel.style.transition = 'none';
+                    updateCarousel();
+                    setTimeout(() => {
+                        carousel.style.transition = 'transform 0.5s ease-in-out';
+                    }, 50);
+                }, 500);
+            }
+        }
+        
+        function moveRight() {
+            currentIndex++;
+            updateCarousel();
+            
+            // Si on atteint la fin, on saute au début
+            if (currentIndex > totalItems + itemsPerView) {
+                setTimeout(() => {
+                    currentIndex = itemsPerView;
+                    carousel.style.transition = 'none';
+                    updateCarousel();
+                    setTimeout(() => {
+                        carousel.style.transition = 'transform 0.5s ease-in-out';
+                    }, 50);
+                }, 500);
+            }
+        }
+        
+        leftArrow.addEventListener('click', moveLeft);
+        rightArrow.addEventListener('click', moveRight);
+        
+        // Initial setup
+        updateCarousel();
+        
+        // Update arrows visibility
+        function updateArrows() {
+            leftArrow.style.opacity = '1';
+            rightArrow.style.opacity = '1';
+        }
+        
+        updateArrows();
+        
+        // Update arrows on window resize
+        window.addEventListener('resize', () => {
+            updateCarousel();
+            updateArrows();
+        });
+    });
+});
