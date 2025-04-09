@@ -477,108 +477,67 @@ window.addEventListener('scroll', () => {
 });
 
 /* ==========================================================================
-   PORTFOLIO FILTERING
+   PORTFOLIO FILTERS
    ========================================================================== */
-let activeFilters = {
-    type: 'all',
-    year: 'all',
-    school: 'all'
-};
-
-const filterCards = () => {
-    const cards = document.querySelectorAll('.portfolio-card');
-    
-    cards.forEach(card => {
-        const type = card.getAttribute('data-category');
-        const years = card.getAttribute('data-year').split(' '); // Split pour multiple années
-        const schools = card.getAttribute('data-school').split(' '); // Split pour multiple formations
-        
-        const matchesType = activeFilters.type === 'all' || type.includes(activeFilters.type);
-        const matchesYear = activeFilters.year === 'all' || years.includes(activeFilters.year);
-        const matchesSchool = activeFilters.school === 'all' || schools.includes(activeFilters.school);
-        
-        if (matchesType && matchesYear && matchesSchool) {
-            card.style.display = "block";
-            setTimeout(() => {
-                card.style.opacity = "1";
-                card.style.transform = "scale(1)";
-            }, 10);
-        } else {
-            card.style.opacity = "0";
-            card.style.transform = "scale(0.8)";
-            setTimeout(() => {
-                card.style.display = "none";
-            }, 300);
-        }
-    });
-};
-
-// Réinitialisation des filtres
-function resetFilters() {
-    // Réinitialise le filtre type
-    document.querySelectorAll('.filter-type button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector('.filter-type button[data-filter="all"]').classList.add('active');
-    
-    // Réinitialise le filtre année
-    document.querySelectorAll('.filter-year button').forEach(btn => {
-        btn.classList.remove('active-year');
-    });
-    document.querySelector('.filter-year button[data-filter-year="all"]').classList.add('active-year');
-    
-    // Réinitialise le filtre école
-    document.querySelectorAll('.filter-school button').forEach(btn => {
-        btn.classList.remove('active-school');
-    });
-    document.querySelector('.filter-school button[data-filter-school="all"]').classList.add('active-school');
-    
-    // Réinitialise l'objet des filtres actifs
-    activeFilters = {
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter_buttons button');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const activeFilters = {
         type: 'all',
         year: 'all',
         school: 'all'
     };
-    
-    // Applique les filtres
-    filterCards();
-}
 
-// Appelle la réinitialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', resetFilters);
+    function filterCards() {
+        portfolioCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const year = card.getAttribute('data-year');
+            const school = card.getAttribute('data-school');
 
-// Gestionnaires d'événements pour chaque groupe de filtres
-document.querySelectorAll('.filter-type button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        // Supprime la classe active de tous les boutons du groupe type
-        document.querySelectorAll('.filter-type button').forEach(btn => {
-            btn.classList.remove('active');
+            const typeMatch = activeFilters.type === 'all' || 
+                            category.split(' ').includes(activeFilters.type);
+            const yearMatch = activeFilters.year === 'all' || year === activeFilters.year;
+            const schoolMatch = activeFilters.school === 'all' || school === activeFilters.school;
+
+            if (typeMatch && yearMatch && schoolMatch) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
         });
-        
-        // Ajoute la classe active au bouton cliqué
-        e.target.classList.add('active');
-        
-        activeFilters.type = e.target.getAttribute('data-filter');
-        filterCards();
-    });
-});
+    }
 
-document.querySelectorAll('.filter-year button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        document.querySelector('.filter-year .active-year')?.classList.remove('active-year');
-        e.target.classList.add('active-year');
-        activeFilters.year = e.target.getAttribute('data-filter-year');
-        filterCards();
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterType = button.parentElement.classList.contains('filter-type') ? 'type' :
+                             button.parentElement.classList.contains('filter-year') ? 'year' : 'school';
+            
+            // Retirer la classe active de tous les boutons du même groupe
+            button.parentElement.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Ajouter la classe active au bouton cliqué
+            button.classList.add('active');
+            
+            // Mettre à jour le filtre actif
+            activeFilters[filterType] = button.getAttribute('data-filter');
+            
+            // Appliquer le filtrage
+            filterCards();
+        });
     });
-});
 
-document.querySelectorAll('.filter-school button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        document.querySelector('.filter-school .active-school')?.classList.remove('active-school');
-        e.target.classList.add('active-school');
-        activeFilters.school = e.target.getAttribute('data-filter-school');
-        filterCards();
-    });
+    // Appliquer le filtrage initial
+    filterCards();
 });
 
 /* ==========================================================================
@@ -672,5 +631,41 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
             updateArrows();
         });
+    });
+});
+
+/* ==========================================================================
+   ARTICLE DE PRESSE GALLERY
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.article-gallery-item');
+    const modal = document.querySelector('.article-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Fermer la modal avec la touche Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
     });
 });
