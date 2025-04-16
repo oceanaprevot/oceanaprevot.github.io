@@ -1228,7 +1228,7 @@ canvas {
 
 
 
-.btn {
+.button-container .btn {
     padding: 12px 24px; /* Ajustez le padding pour correspondre aux autres boutons */
     border: 1px solid white; /* Bordure blanche */
     border-radius: 50px; /* Bords très arrondis */
@@ -1241,7 +1241,8 @@ canvas {
     transition: all 0.3s ease; /* Transition pour les effets au survol */
     text-decoration: none; /* Supprime le soulignement */
 }
-.btn:hover {
+
+.button-container .btn:hover {
     background: rgba(255, 255, 255, 0.1); /* Changement de fond au survol */
 }
 
