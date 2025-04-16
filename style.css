@@ -1246,6 +1246,24 @@ canvas {
     background: rgba(255, 255, 255, 0.1); /* Changement de fond au survol */
 }
 
+.button-container-centered .btn {
+    padding: 12px 24px; /* Ajustez le padding pour correspondre aux autres boutons */
+    border: 1px solid white; /* Bordure blanche */
+    border-radius: 50px; /* Bords très arrondis */
+    background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent */
+    color: white; /* Couleur du texte */
+    font-size: 16px; /* Taille de la police */
+    text-transform: uppercase; /* Texte en majuscules */
+    font-weight: 700; /* Poids de la police */
+    letter-spacing: 1px; /* Espacement des lettres */
+    transition: all 0.3s ease; /* Transition pour les effets au survol */
+    text-decoration: none; /* Supprime le soulignement */
+    text-align: center;
+}
+
+.button-container-centered .btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Changement de fond au survol */
+}
 .text-tag {
     font-family: 'StreetBreaker', sans-serif; /* Police StreetBreaker */
     font-size: 40px; /* Taille de la police pour les ordinateurs */
