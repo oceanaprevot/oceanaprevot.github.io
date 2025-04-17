@@ -522,14 +522,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Retirer la classe active de tous les boutons du même groupe
             button.parentElement.querySelectorAll('button').forEach(btn => {
-                btn.classList.remove('active');
+                btn.classList.remove('active', 'active-year', 'active-school');
             });
             
-            // Ajouter la classe active au bouton cliqué
-            button.classList.add('active');
+            // Ajouter la classe active appropriée au bouton cliqué
+            if (filterType === 'type') {
+                button.classList.add('active');
+            } else if (filterType === 'year') {
+                button.classList.add('active-year');
+            } else if (filterType === 'school') {
+                button.classList.add('active-school');
+            }
             
             // Mettre à jour le filtre actif
-            activeFilters[filterType] = button.getAttribute('data-filter');
+            activeFilters[filterType] = button.getAttribute(`data-${filterType === 'type' ? 'category' : filterType}`);
             
             // Appliquer le filtrage
             filterCards();
