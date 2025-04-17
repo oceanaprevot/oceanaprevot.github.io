@@ -56,34 +56,35 @@
                 <!-- Filtres par type -->
                 <div class="filter_buttons filter-type">
                     <h4>Par type</h4>
-                    <button class="active" data-filter="all">Tous</button>
-                    <button data-filter="da">Direction Artistique</button>
-                    <button data-filter="design">Design</button>
-                    <button data-filter="uxui">UX/UI</button>
-                    <button data-filter="dev">Développement</button>
-                    <button data-filter="gdp">Gestion de Projet</button>
-                    <button data-filter="redaction">Rédaction</button>
+                    <button class="active" data-category="all">Tous</button>
+                    <button data-category="da">Direction Artistique</button>
+                    <button data-category="design">Design</button>
+                    <button data-category="uxui">UX/UI</button>
+                    <button data-category="dev">Développement</button>
+                    <button data-category="gdp">Gestion de Projet</button>
+                    <button data-category="redaction">Rédaction</button>
+                    <button data-category="photographie">Photographie</button>
                 </div>
 
                 <!-- Filtres par année -->
                 <div class="filter_buttons filter-year">
                     <h4>Par année</h4>
-                    <button class="active-year" data-filter-year="all">Toutes</button>
-                    <button data-filter-year="2022">2022</button>
-                    <button data-filter-year="2023">2023</button>
-                    <button data-filter-year="2024">2024</button>
-                    <button data-filter-year="2025">2025</button>
+                    <button class="active-year" data-year="all">Toutes</button>
+                    <button data-year="2022">2022</button>
+                    <button data-year="2023">2023</button>
+                    <button data-year="2024">2024</button>
+                    <button data-year="2025">2025</button>
                 </div>
 
                 <!-- Filtres par formation -->
                 <div class="filter_buttons filter-school">
                     <h4>Par formation</h4>
-                    <button class="active-school" data-filter-school="all">Toutes</button>
-                    <button data-filter-school="mmi1">BUT MMI 1ère année</button>
-                    <button data-filter-school="mmi2">BUT MMI 2ème année</button>
-                    <button data-filter-school="mmi3">BUT MMI 3ème année</button>
-                    <button data-filter-school="mairie">Mairie de Toulon</button>
-                    <button data-filter-school="perso">Projets Personnels</button>
+                    <button class="active-school" data-school="all">Toutes</button>
+                    <button data-school="mmi1">BUT MMI 1ère année</button>
+                    <button data-school="mmi2">BUT MMI 2ème année</button>
+                    <button data-school="mmi3">BUT MMI 3ème année</button>
+                    <button data-school="mairie">Mairie de Toulon</button>
+                    <button data-school="perso">Projets Personnels</button>
                 </div>
             </div>
 
@@ -171,6 +172,25 @@
 
 
                 <!-- Carte 4 -->
+                <a href="realisations/kuraku.html" class="portfolio-card" 
+                data-category="photographie" 
+                data-year="2025" 
+                data-school="perso">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/kuraku/prevotoceana_kuraku-preview.jpg" alt="Photoshoot Kuraku">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Branding d'un joueur e-sport</h3>
+                        <div class="tags-container">
+                            <span class="tag">Photographie</span>
+                            <span class="tag">Direction artistique</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Carte 5 -->
                 <a href="realisations/articledepresse.html" class="portfolio-card" 
                 data-category="design redaction" 
                 data-year="2025" 
@@ -188,8 +208,6 @@
                         </div>
                     </div>
                 </a>
-
-
 
 
 
