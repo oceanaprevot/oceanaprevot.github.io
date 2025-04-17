@@ -1127,6 +1127,9 @@ canvas {
     font-size: 30px;
 }
 
+/* ==========================================================================
+   FILTER STYLES
+   ========================================================================== */
 .filter-groups {
     display: flex;
     flex-direction: column;
@@ -1148,38 +1151,85 @@ canvas {
     align-items: center;
 }
 
-/* Style pour les boutons actifs de chaque groupe */
 .filter_buttons button {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5); /* État inactif plus discret */
+    color: rgba(255, 255, 255, 0.5);
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-/* État hover */
 .filter_buttons button:hover {
     background: rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.8);
     transform: translateY(-1px);
 }
 
-/* États actifs pour chaque groupe */
-.filter_buttons button.active-type,
+.filter_buttons button.active,
 .filter_buttons button.active-year,
-.filter_buttons button.active-school,
-.filter_buttons button.active {
+.filter_buttons button.active-school {
     background: rgba(255, 255, 255, 0.9);
     color: #000000;
     border-color: rgba(255, 255, 255, 1);
     font-weight: 500;
+    animation: pulse 2s infinite;
 }
 
-/* Animation au clic */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
 .filter_buttons button:active {
     transform: translateY(1px);
+}
+
+/* Animation pour les boutons actifs */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.filter_buttons button.active,
+.filter_buttons button.active-year,
+.filter_buttons button.active-school {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .filter-groups {
+        padding: 15px;
+    }
+    
+    .filter_buttons {
+        gap: 8px;
+    }
+    
+    .filter_buttons button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+    
+    .filter_buttons h4 {
+        font-size: 1em;
+    }
 }
 
 .two-column-section {
