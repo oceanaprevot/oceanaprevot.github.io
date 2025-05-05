@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio - Océana PREVOT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="container"> <!-- Conteneur pour le header -->
+        <header class="site-header">
+            <nav class="header-nav">
+                <div class="header-logo">
+                    <a href="index.html">
+                       <img id="logo" src="images/logo oceana.svg" alt="Logo" height="40px">
+                    </a>
+                </div>
+
+                <ul class="nav-links portfolio-link">
+                    <li><a href="portfolio.html">P ✦ R T F ✦ L I ✦</a></li>
+                </ul>
+
+                <ul class="nav-links">
+                    <li><a href="contact.html">@</a></li>
+                </ul>
+                
+                <!-- Ajout du bouton menu hamburger -->
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+
+
+
+    
+        <section class="section-1440">
+
+            <div class="navigation-buttons">
+                <a href="portfolio.html" class="btn rainbow-btn">réalisations</a>
+                <a href="academique.html" class="btn">Espace Académique</a>
+            </div>
+
+
+
+            
+            <!-- Groupes de filtres -->
+            <div class="filter-groups">
+                <!-- Filtres par type -->
+                <div class="filter_buttons filter-type">
+                    <h4>Par type</h4>
+                    <button class="active" data-category="all">Tous</button>
+                    <button data-category="da">Direction Artistique</button>
+                    <button data-category="graphisme">Graphisme</button>
+                    <button data-category="uxui">UX/UI</button>
+                    <button data-category="dev">Développement</button>
+                    <button data-category="gdp">Gestion de Projet</button>
+                    <button data-category="redaction">Rédaction</button>
+                    <button data-category="photographie">Photographie</button>
+                    <button data-category="audiovisuel">Audiovisuel</button>
+                    <button data-category="dessin">Dessin</button>
+                </div>
+
+
+
+                <!-- Filtres par formation -->
+                <div class="filter_buttons filter-school">
+                    <h4>Par formation</h4>
+                    <button class="active-school" data-school="all">Toutes</button>
+                    <button data-school="mmi1">BUT MMI 1<sup>ère</sup> année</button>
+                    <button data-school="mmi2">BUT MMI 2<sup>e</sup> année</button>
+                    <button data-school="mmi3">BUT MMI 3<sup>e</sup> année</button>
+                    <button data-school="mairie">Mairie de Toulon</button>
+                    <button data-school="perso">Projets Personnels</button>
+                </div>
+                                <!-- Filtres par année -->
+                                <div class="filter_buttons filter-year">
+                                    <h4>Par année</h4>
+                                    <button class="active-year" data-year="all">Toutes</button>
+                                    <button data-year="2023">2023</button>
+                                    <button data-year="2024">2024</button>
+                                    <button data-year="2025">2025</button>
+                                </div>
+            </div>
+
+
+
+
+
+
+
+            <section class="portfolio-grid">
+
+
+
+
+                <!-- Carte 3 -->
+                <a href="realisations/mmilan2023.html" class="portfolio-card" 
+                data-category="da graphisme gdp" 
+                data-year="2023" 
+                data-school="mmi2">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/mmilan2023/prevotoceana_mmilan2023-preview.png" alt="MMI LAN 2023">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>MMI LAN 2023</h3>
+                        <div class="tags-container">
+                            <span class="tag">Direction Artistique</span>
+                            <span class="tag">Gestion de Projet</span>
+                            <span class="tag">Graphisme</span>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Carte 2 -->
+                <a href="realisations/siteportfolio.html" class="portfolio-card" 
+                data-category="dev da uxui"
+                data-year="2025" 
+                data-school="perso mmi3">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image photofond" style="height: 300px; width: 100%;">
+                            <div class="portfolio-link">
+                                <p class="text-rgb" style="text-align: center;">S I T E <br>P ✦ R T F ✦ L I ✦</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Mon site web</h3>
+                        <div class="tags-container">
+                            <span class="tag">Développement</span>
+                            <span class="tag">Direction Artistique</span>
+                            <span class="tag">UX/UI</span>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+
+
+
+
+
+
+
+
+                <a href="realisations/toulonforever2025.html" class="portfolio-card" 
+                data-category="da gdp graphisme audiovisuel" 
+                data-year="2025" 
+                data-school="mairie">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/toulonforever2025/prevotoceana_toulonforever2025-preview.png" alt="Concours photo Toulon Forever 2025">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Toulon Forever 2025</h3>
+                        <div class="tags-container">
+                            <span class="tag">Direction Artistique</span>
+                            <span class="tag">Gestion de Projet</span>
+                            <span class="tag">Graphisme</span>
+                            <span class="tag">Audiovisuel</span>
+                        </div>
+                    </div>
+                </a>
+
+
+
+                <a href="realisations/dansealopera.html" class="portfolio-card" 
+                data-category="graphisme dessin audiovisuel" 
+                data-year="2025" 
+                data-school="mmi3">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/dansealopera2025/prevotoceana_dansealopera-preview.png" alt="Projection : Danse à l'Opéra">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Danse à l'Opéra de Toulon </h3>
+                        <div class="tags-container">
+                            <span class="tag">Audiovisuel</span>
+                            <span class="tag">Dessin</span>
+
+                            <span class="tag">Graphisme</span>
+
+                        </div>
+                    </div>
+                </a>
+                <!-- Carte 4 -->
+                <a href="realisations/kuraku.html" class="portfolio-card" 
+                data-category="da photographie graphisme" 
+                data-year="2025" 
+                data-school="perso">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/kuraku/prevotoceana_kuraku-preview.jpg" alt="Kuraku">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Branding d'un joueur e-sport</h3>
+                        <div class="tags-container">
+                            <span class="tag">Direction artistique</span>
+                            <span class="tag">Photographie</span>
+                            <span class="tag">Graphisme</span>
+                            <span class="tag">Dessin</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="realisations/jeuxolympiques2024.html" class="portfolio-card" 
+                data-category="graphisme" 
+                data-year="2024" 
+                data-school="mairie">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/jeuxolympiquesparis2024/oceanaprevot_jeuxolympiquesparis2024-preview.PNG" alt="Passage de la Flamme Olympique à Toulon">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>PARIS 2024 : Passage de la Flamme Olympique à Toulon</h3>
+                        <div class="tags-container">
+                            <span class="tag">Graphisme</span>
+                        </div>
+                    </div>
+                </a>
+
+                                <!-- Carte 1 -->
+                                <a href="realisations/kawaiisushi.html" class="portfolio-card" 
+                                data-category="uxui"
+                                data-year="2024"
+                                data-school="mmi2">
+                                    <div class="portfolio-image">
+                                        <div class="placeholder-image">
+                                            <img src="images/Portfolio/kawaiisushi/oceanaprevot_kawaiisushi_mockup.jpg" alt="Kawaii Sushi Mockup">
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h3>Kawaii Sushi</h3>
+                                        <span class="tag" data-type="uxui">UX/UI</span>
+                                    </div>
+                                </a>
+                <!-- Carte 5 -->
+                <a href="realisations/articledepresse.html" class="portfolio-card" 
+                data-category="graphisme redaction" 
+                data-year="2025" 
+                data-school="mmi3">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/articledepresse/articledepresse-mockup.png" alt="Article de presse mockup">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Article de presse : Danse & Multimédia</h3>
+                        <div class="tags-container">
+                            <span class="tag">Graphisme</span>
+                            <span class="tag">Rédaction</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Carte 6 -->
+                <a href="realisations/puriminou.html" class="portfolio-card" 
+                data-category="uxui graphisme" 
+                data-year="2024" 
+                data-school="mmi2">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image">
+                            <img src="images/Portfolio/puriminou/prevotoceana_puriminou-preview.jpg" alt="UX Design Puriminou">
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Puriminou</h3>
+                        <div class="tags-container">
+                            <span class="tag">UX/UI</span>
+                            <span class="tag">Graphisme</span>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+
+
+            
+
+            <a href="realisations/toulonforever2024.html" class="portfolio-card" 
+            data-category="graphisme audiovisuel" 
+            data-year="2024" 
+            data-school="mairie">
+                <div class="portfolio-image">
+                    <div class="placeholder-image">
+                        <img src="images/Portfolio/toulonforever2024/prevotoceana_toulonforever2024-preview.png" alt="Concours photo Toulon Forever 2024">
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Toulon Forever 2024</h3>
+                    <div class="tags-container">
+                        <span class="tag">Graphisme</span>
+                        <span class="tag">Audiovisuel</span>
+                    </div>
+                </div>
+            </a>
+            <a href="realisations/dessins.html" class="portfolio-card" 
+            data-category="dessin" 
+            data-year="2023 2024 2025" 
+            data-school="perso">
+                <div class="portfolio-image">
+                    <div class="placeholder-image">
+                        <img src="images/Portfolio/dessins/oceanaprevot_dessins-internetastra.png" alt="Mes dessins">
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Mes dessins</h3>
+                    <div class="tags-container">
+                        <span class="tag">Dessin</span>
+                    </div>
+                </div>
+            </a>
+
+        </section>
+            <div class="scroll-star">
+                <span class="star-rotate">✦</span>
+            </div>
+<div>
+   <h3> C'est tout pour le type, période et formation sélectionnée !</h3>
+</div>
+
+<div class="scroll-star">
+    <span class="star-rotate">✦</span>
+</div>
+        </section>
+    </div>
+
+
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3 class="rainbow-text">Contact</h3>
+                <ul>
+                    <li><a href="mailto:oceana.prevot@gmail.com">oceana.prevot@gmail.com</a></li>
+                    <li>
+                        <a href="https://fr.linkedin.com/in/oceana-prevot" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/oceanaprevot/?utm_source=ig_web_button_share_sheet" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-sitemap">
+                <h3 class="rainbow-text">Plan du site</h3>
+                <ul>
+                    <li><a href="academique.html">Espace académique</a></li>
+                    <li><a href="portfolio.html">Réalisations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="credit-text">© 2025 Oceana Prevot - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
