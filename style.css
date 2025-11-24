@@ -913,7 +913,7 @@ canvas {
 
 /* ==========================================================================
    MOBILE MENU
-   ========================================================================== 
+   ========================================================================== */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -949,7 +949,7 @@ canvas {
 
 
 
-/* TITRE (h1) 
+/* TITRE (h1) */
 .responsive-title {
     font-size: clamp(14px, 4vw, 30px);  
     font-weight: 700;
@@ -958,7 +958,7 @@ canvas {
     font-family: "StreetBreaker";
 }
 
-/* SOUS-TITRE (h2) 
+/* SOUS-TITRE (h2) */
 .responsive-subtitle {
     font-size: clamp(12px, 3vw, 20px);
     font-weight: 600;
@@ -966,7 +966,7 @@ canvas {
     margin-bottom: 0.5rem;
 }
 
-/* TEXTE PARAGRAPHE 
+/* TEXTE PARAGRAPHE */
 .responsive-text {
     font-size: clamp(10px, 2.5vw, 16px);
     line-height: 1.6;
@@ -979,7 +979,7 @@ canvas {
     z-index: 10;
 }
 
-/* CONTACT 
+/* CONTACT */
 #div-contact {
     display: inline;
     justify-content: space-between;
@@ -997,7 +997,7 @@ canvas {
     padding: 10px 20px;
     z-index: 100;
 }
-*/
+
 /* ==========================================================================
    SCROLL STAR
    ========================================================================== */
