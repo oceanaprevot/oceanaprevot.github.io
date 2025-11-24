@@ -1372,48 +1372,44 @@ canvas {
     }
 
     .menu-toggle {
-        display: flex;
+        display: none; /* Cache le menu hamburger pour garder le header identique */
     }
 
+    /* Garde les nav-links visibles dans le header comme sur desktop */
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        flex-direction: column;
+        position: static; /* Reste dans le flux normal */
+        height: auto;
+        width: auto;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        flex-direction: row; /* Garde l'alignement horizontal */
         justify-content: center;
         align-items: center;
-        transition: right 0.3s ease;
-        z-index: 999;
+        transition: none;
+        z-index: auto;
     }
 
     .nav-links.active {
-        right: 0;
+        right: auto;
     }
 
     .nav-links li {
-        margin: 20px 0;
-        opacity: 0;
-        transform: translateX(50px);
-        transition: all 0.3s ease;
+        margin: 0; /* Pas de marge verticale */
+        opacity: 1; /* Toujours visible */
+        transform: none; /* Pas de transformation */
+        transition: none;
     }
 
     .nav-links.active li {
         opacity: 1;
-        transform: translateX(0);
+        transform: none;
     }
 
     .nav-links a {
-        font-size: 24px;
+        font-size: 18px; /* Taille normale comme sur desktop */
+        padding: 10px 15px; /* Padding normal */
     }
-
-    .nav-links li:nth-child(1) { transition-delay: 0.1s; }
-    .nav-links li:nth-child(2) { transition-delay: 0.2s; }
-    .nav-links li:nth-child(3) { transition-delay: 0.3s; }
 
     .master-text {
         padding: 20px 0;
@@ -1963,6 +1959,56 @@ text-align: left;
 @media (max-width: 768px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Garde le header identique sur mobile */
+    .menu-toggle {
+        display: none; /* Cache le menu hamburger */
+    }
+
+    .nav-links {
+        position: static; /* Reste dans le flux normal */
+        height: auto;
+        width: auto;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        flex-direction: row; /* Garde l'alignement horizontal */
+        justify-content: center;
+        align-items: center;
+        transition: none;
+        z-index: auto;
+    }
+
+    .nav-links.active {
+        right: auto;
+    }
+
+    .nav-links li {
+        margin: 0;
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: none;
+    }
+
+    .nav-links a {
+        font-size: 16px; /* Légèrement plus petit sur très petits écrans */
+        padding: 8px 12px;
+    }
+    
+    /* Assure que le header reste visible et bien formaté */
+    .site-header {
+        width: calc(100% - 20px);
+        padding: 8px 15px;
+    }
+    
+    .header-logo img {
+        height: 35px; /* Légèrement plus petit sur mobile */
     }
 }
 
