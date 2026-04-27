@@ -93,7 +93,7 @@ document.addEventListener('mousemove', (e) => {
 
 // Détection hover sur les éléments cliquables
 const clickableElements = document.querySelectorAll('a, button, .clickable, .menu-toggle');
-const formInputs = document.querySelectorAll('input, textarea');
+const formInputs = document.querySelectorAll('input, textarea, select');
 
 clickableElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -142,13 +142,23 @@ function startRainbowAnimation(link) {
 
 // Vérifier quel lien est actif en fonction de l'URL actuelle
 function setActiveLink() {
-    const currentPath = window.location.pathname;
-    links.forEach(link => {
-        if (link.getAttribute('href') === currentPath.split('/').pop()) {
-            link.classList.add('active');
-            startRainbowAnimation(link);
-        }
-    });
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const isRealisationPage = window.location.pathname.includes('/realisations/');
+
+    const homeLink = document.querySelector('.header-nav a[href$="index.html"]');
+    const portfolioLink = document.querySelector('.header-nav a[href$="portfolio.html"]');
+    const contactLink = document.querySelector('.header-nav a[href$="contact.html"]');
+
+    if (currentPage === 'index.html' && homeLink) {
+        homeLink.classList.add('active');
+        startRainbowAnimation(homeLink);
+    } else if ((currentPage === 'portfolio.html' || isRealisationPage) && portfolioLink) {
+        portfolioLink.classList.add('active');
+        startRainbowAnimation(portfolioLink);
+    } else if (currentPage === 'contact.html' && contactLink) {
+        contactLink.classList.add('active');
+        startRainbowAnimation(contactLink);
+    }
 }
 
 // Appliquer les événements à chaque lien
@@ -186,11 +196,9 @@ function updateRainbowColors() {
     const gradient = `linear-gradient(90deg, ${color1}, ${color2})`;
 
     // Ajout de l'animation RGB pour le lien portfolio
-    const portfolioLink = document.querySelector('.portfolio-link a');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const excludedPages = ['index.html', 'contact.html', 'mentions-legales.html'];
+    const portfolioLink = document.querySelector('.header-nav a[href$="portfolio.html"]');
     
-    if (portfolioLink && !excludedPages.includes(currentPage)) {
+    if (portfolioLink && portfolioLink.classList.contains('active')) {
         portfolioLink.style.backgroundImage = gradient;
         portfolioLink.style.color = 'transparent';
         portfolioLink.style.backgroundClip = 'text';
@@ -490,28 +498,36 @@ window.addEventListener('scroll', () => {
 });
 
 /* ==========================================================================
-   PORTFOLIO FILTERS
+   PORTFOLIO FILTERS (menus déroulants)
+   Types : da, graphisme, uxui, dev, gdp, redaction, photographie,
+   motiondesign, audiovisuel, 3d, dessin (data-category sur les .portfolio-card)
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter_buttons button');
+    const filterTypeEl = document.getElementById('filter-portfolio-type');
+    const filterSchoolEl = document.getElementById('filter-portfolio-school');
+    const filterYearEl = document.getElementById('filter-portfolio-year');
+
+    if (!filterTypeEl || !filterSchoolEl || !filterYearEl) return;
+
     const portfolioCards = document.querySelectorAll('.portfolio-card');
     const activeFilters = {
-        type: 'all',
-        year: 'all',
-        school: 'all'
+        type: filterTypeEl.value,
+        year: filterYearEl.value,
+        school: filterSchoolEl.value
     };
 
     function filterCards() {
         portfolioCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            const year = card.getAttribute('data-year');
-            const school = card.getAttribute('data-school');
+            const category = card.getAttribute('data-category') || '';
+            const year = card.getAttribute('data-year') || '';
+            const school = card.getAttribute('data-school') || '';
 
-            const typeMatch = activeFilters.type === 'all' || 
-                            category.split(' ').includes(activeFilters.type);
-            const yearMatch = activeFilters.year === 'all' || 
-                            year.split(' ').includes(activeFilters.year);
-            const schoolMatch = activeFilters.school === 'all' || school === activeFilters.school;
+            const typeMatch = activeFilters.type === 'all' ||
+                            category.split(/\s+/).filter(Boolean).includes(activeFilters.type);
+            const yearMatch = activeFilters.year === 'all' ||
+                            year.split(/\s+/).filter(Boolean).includes(activeFilters.year);
+            const schoolMatch = activeFilters.school === 'all' ||
+                            school.split(/\s+/).filter(Boolean).includes(activeFilters.school);
 
             if (typeMatch && yearMatch && schoolMatch) {
                 card.style.display = 'block';
@@ -529,35 +545,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filterType = button.parentElement.classList.contains('filter-type') ? 'type' :
-                             button.parentElement.classList.contains('filter-year') ? 'year' : 'school';
-            
-            // Retirer la classe active de tous les boutons du même groupe
-            button.parentElement.querySelectorAll('button').forEach(btn => {
-                btn.classList.remove('active', 'active-year', 'active-school');
-            });
-            
-            // Ajouter la classe active appropriée au bouton cliqué
-            if (filterType === 'type') {
-                button.classList.add('active');
-            } else if (filterType === 'year') {
-                button.classList.add('active-year');
-            } else if (filterType === 'school') {
-                button.classList.add('active-school');
-            }
-            
-            // Mettre à jour le filtre actif
-            activeFilters[filterType] = button.getAttribute(`data-${filterType === 'type' ? 'category' : filterType}`);
-            
-            // Appliquer le filtrage
-            filterCards();
-        });
+    function syncFromControls() {
+        activeFilters.type = filterTypeEl.value;
+        activeFilters.school = filterSchoolEl.value;
+        activeFilters.year = filterYearEl.value;
+        filterCards();
+    }
+
+    [filterTypeEl, filterSchoolEl, filterYearEl].forEach(el => {
+        el.addEventListener('change', syncFromControls);
     });
 
-    // Appliquer le filtrage initial
-    filterCards();
+    syncFromControls();
 });
 
 /* ==========================================================================
@@ -792,6 +791,41 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+});
+
+/* ==========================================================================
+   RÈGLES D'OR / TUTORIEL - CARROUSELS 1 IMAGE
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const carousels = document.querySelectorAll('.rules-single-carousel');
+    if (!carousels.length) return;
+
+    carousels.forEach(carousel => {
+        const items = carousel.querySelectorAll('.rules-item');
+        const prevButton = carousel.querySelector('.rules-carousel-prev');
+        const nextButton = carousel.querySelector('.rules-carousel-next');
+        if (!items.length || !prevButton || !nextButton) return;
+
+        let currentIndex = 0;
+
+        function render() {
+            items.forEach((item, idx) => {
+                item.classList.toggle('is-active', idx === currentIndex);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            render();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            render();
+        });
+
+        render();
+    });
 });
 
 /* ==========================================================================
@@ -1074,4 +1108,144 @@ document.addEventListener('DOMContentLoaded', function() {
             bubble.y = Math.min(bubble.y, container.clientHeight - bubble.size);
         });
     });
+});
+
+/* ==========================================================================
+   RÉALISATIONS — lien « Retour » en haut à gauche (sticky)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.portfolio-section');
+    const backs = document.querySelectorAll('.realisation-back-sticky');
+    if (!section || backs.length === 0) return;
+    backs.forEach((el) => {
+        section.insertBefore(el, section.firstChild);
+    });
+});
+
+/* ==========================================================================
+   GALERIE DESSINS — parallax inertiel, zoom au survol, lightbox au clic
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.querySelector('.dessins-interactive');
+    if (!root) return;
+
+    const containers = root.querySelectorAll('.gallery-year .image-container');
+    if (!containers.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'dessins-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML =
+        '<button type="button" class="dessins-lightbox-close" aria-label="Fermer">&times;</button><img src="" alt="">';
+    document.body.appendChild(lightbox);
+
+    const lbImg = lightbox.querySelector('img');
+    const lbClose = lightbox.querySelector('.dessins-lightbox-close');
+
+    function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        root.classList.add('is-lightbox-open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        root.classList.remove('is-lightbox-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+        lbImg.alt = '';
+    }
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    lbClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+
+    containers.forEach((container) => {
+        const img = container.querySelector('img');
+        if (!img) return;
+        container.addEventListener('click', () => {
+            openLightbox(img.getAttribute('src') || img.src, img.alt);
+        });
+    });
+
+    if (reduceMotion) return;
+
+    const items = Array.from(containers).map((el, i) => ({
+        el,
+        depth: 0.55 + (i % 7) * 0.07,
+        ox: 0,
+        oy: 0
+    }));
+
+    let mouseX = 0.5;
+    let mouseY = 0.5;
+    let lastX = window.innerWidth / 2;
+    let lastY = window.innerHeight / 2;
+    let velX = 0;
+    let velY = 0;
+
+    const maxShift = 22;
+
+    function onPointerMove(e) {
+        const cx = e.clientX;
+        const cy = e.clientY;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        mouseX = cx / w;
+        mouseY = cy / h;
+        const dx = cx - lastX;
+        const dy = cy - lastY;
+        lastX = cx;
+        lastY = cy;
+        velX += dx * 0.14;
+        velY += dy * 0.14;
+    }
+
+    function tick() {
+        velX *= 0.94;
+        velY *= 0.94;
+
+        const tx = (mouseX - 0.5) * 2;
+        const ty = (mouseY - 0.5) * 2;
+
+        if (!root.classList.contains('is-lightbox-open')) {
+            items.forEach((s) => {
+                const m = maxShift * s.depth;
+                const targetX = tx * m + velX * s.depth * 0.35;
+                const targetY = ty * m + velY * s.depth * 0.35;
+                s.ox += (targetX - s.ox) * 0.11;
+                s.oy += (targetY - s.oy) * 0.11;
+                s.el.style.transform =
+                    `translate3d(${s.ox}px, ${s.oy}px, 0) rotate(${s.ox * 0.04}deg)`;
+            });
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener(
+        'touchmove',
+        (e) => {
+            if (!e.touches[0]) return;
+            onPointerMove(e.touches[0]);
+        },
+        { passive: true }
+    );
+    requestAnimationFrame(tick);
 });
