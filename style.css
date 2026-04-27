@@ -327,7 +327,6 @@ h2 {
 p {
     font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     line-height: 1.6;
-    margin-bottom: 1rem;
 }
 
 /* ==========================================================================
@@ -339,9 +338,9 @@ p {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 50px);
-    max-width: 750px;
+    max-width: 500px;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(10px);
     border: 3px solid white;
     border-radius: 50px;
@@ -353,6 +352,21 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo a {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.header-logo img {
+    display: block;
 }
 
 
@@ -510,6 +524,17 @@ canvas {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Assure que l'image couvre tout l'espace */
+}
+
+.placeholder-image.placeholder-image--empty {
+    min-height: 180px;
+    aspect-ratio: 16 / 9;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.38);
 }
 
 .portfolio-content {
@@ -719,6 +744,71 @@ canvas {
     line-height: 1.6;
 }
 
+.realisation-card a.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid white;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.realisation-card a.btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Retour portfolio : centré en haut, un seul fond (verre sur le conteneur) */
+.realisation-back-sticky {
+    position: sticky;
+    top: 110px;
+    z-index: 55;
+    width: fit-content;
+    max-width: min(100%, 360px);
+    margin: 0 auto 1.25rem;
+    padding: 6px 14px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
+}
+
+.realisation-back-sticky a.btn {
+    display: inline-block;
+    padding: 8px 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: white;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+
+@media (max-width: 768px) {
+    .realisation-back-sticky {
+        top: 96px;
+        max-width: calc(100vw - 24px);
+    }
+
+    .realisation-back-sticky a.btn {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+}
+
 .realisation-personal {
     background-color: white;
     color: black;
@@ -729,6 +819,8 @@ canvas {
 
 .portfolio-section {
     max-width: 1440px;
+    width: 100%;
+    align-self: stretch;
 }
 
 
@@ -1153,8 +1245,80 @@ canvas {
 .filter-groups {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 24px;
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Trois menus déroulants côte à côte (page portfolio) */
+.filter-groups--dropdowns {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem 1.5rem;
+}
+
+.filter-dropdown-wrap {
+    flex: 0 1 200px;
+    max-width: 220px;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.filter-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+}
+
+.filter-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.55rem 2.25rem 0.55rem 0.85rem;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.08);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.filter-select:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 0 3px rgba(255, 255, 255, 0.12);
+}
+
+.filter-select option {
+    background: #111;
+    color: #fff;
+    padding: 0.5rem;
 }
 
 .filter_buttons h4 {
@@ -1162,6 +1326,9 @@ canvas {
     margin-bottom: 10px;
     font-size: 0.9em;
     opacity: 0.8;
+    flex: 0 0 100%;
+    text-align: center;
+    width: 100%;
 }
 
 .filter_buttons {
@@ -1169,6 +1336,8 @@ canvas {
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .filter_buttons button {
@@ -1231,6 +1400,17 @@ canvas {
 @media (max-width: 768px) {
     .filter-groups {
         padding: 15px;
+    }
+
+    .filter-groups--dropdowns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .filter-dropdown-wrap {
+        max-width: none;
+        min-width: 0;
     }
     
     .filter_buttons {
@@ -1342,7 +1522,7 @@ canvas {
 
 .text-tag {
     font-family: 'StreetBreaker', sans-serif; /* Police StreetBreaker */
-    font-size: 40px; /* Taille de la police pour les ordinateurs */
+    font-size: 60px; /* Taille de la police pour les ordinateurs */
     margin: 10px 0; /* Espacement autour du texte */
 }
 
@@ -1673,7 +1853,7 @@ text-align: left;
 
 .bas-de-page-oh-non div .btn {
     padding: 12px 24px; /* Ajustez le padding pour correspondre aux autres boutons */
-    margin: 20px;
+    margin: 10px;
     border: 1px solid white; /* Bordure blanche */
     border-radius: 50px; /* Bords très arrondis */
     background: rgba(0, 0, 0, 0.3); /* Fond semi-transparent */
@@ -2556,6 +2736,69 @@ background-repeat: no-repeat;
     transform: scale(1.05);
 }
 
+/* Carrousels "Réels & Stories" (Toulon Forever 2025) */
+.rules-carousels-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+.rules-single-carousel p {
+    margin-bottom: 10px;
+}
+
+.rules-carousel-stage {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 10px;
+}
+
+.rules-single-carousel .rules-gallery {
+    display: block;
+    margin: 0;
+}
+
+.rules-single-carousel .rules-item {
+    display: none;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.rules-single-carousel .rules-item.is-active {
+    display: block;
+}
+
+.rules-single-carousel .rules-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.rules-carousel-arrow {
+    width: 44px;
+    height: 44px;
+    border: 2px solid white;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    font-size: 24px;
+    line-height: 1;
+    cursor: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1100px) {
+    .rules-carousels-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 1200px) {
     .rules-item {
         flex: 0 0 calc(20% - 10px);
@@ -2691,7 +2934,6 @@ background-repeat: no-repeat;
     border-radius: 50%;
     margin-bottom: 30px;
     object-fit: cover;
-    border: 2px solid white;
 }
 
 .profile-text {
@@ -3576,9 +3818,7 @@ background-repeat: no-repeat;
 .cv-layout {
     display: flex;
     width: 100%;
-    min-height: calc(100vh - 120px);
     position: relative;
-    margin-top: 120px;
 }
 
 .cv-left-column {
@@ -3914,5 +4154,95 @@ background-repeat: no-repeat;
     .vertical-pair {
         flex-basis: calc(100% - 20px);
         max-width: calc(100% - 20px);
+    }
+}
+
+/* Galerie dessins : parallax JS + zoom hover + lightbox */
+.dessins-interactive .gallery-year .image-container {
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: box-shadow 0.35s ease;
+}
+
+.dessins-interactive .gallery-year .image-container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.dessins-interactive .gallery-year .image-container img {
+    transition: transform 0.45s cubic-bezier(0.34, 1.1, 0.64, 1);
+    transform-origin: center center;
+}
+
+.dessins-interactive .gallery-year .image-container:hover img {
+    transform: scale(1.07);
+}
+
+.dessins-interactive.is-lightbox-open .gallery-year .image-container:hover img {
+    transform: none;
+}
+
+.dessins-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dessins-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dessins-lightbox img {
+    max-width: min(96vw, 1400px);
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.6);
+}
+
+.dessins-lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 2;
+}
+
+.dessins-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dessins-interactive .gallery-year .image-container img {
+        transition: transform 0.2s ease;
+    }
+
+    .dessins-interactive .gallery-year .image-container:hover img {
+        transform: scale(1.03);
     }
 }
